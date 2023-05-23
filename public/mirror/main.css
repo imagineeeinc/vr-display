@@ -1,0 +1,40 @@
+:root {
+	font-family: monospace;
+}
+* {
+	font: inherit;
+	color: inherit;
+}
+body {
+	color: white;
+	background: rgb(20,10,20);
+	text-align: center;
+	font-size: 20px;
+}
+input, button {
+	background: inherit;
+	border: 2px solid grey;
+	padding: 5px;
+	border-radius: 10px;
+	cursor: pointer;
+	margin: 10px;
+}
+#share {
+	background: springgreen;
+	color: indigo;
+	font-style: italic;
+	font-weight: 600;
+	border: none;
+	padding: 10px;
+	font-size: 30px;
+}
+#share:disabled {
+	background: lightgreen;
+	cursor: not-allowed;
+}
+#preview {
+	aspect-ratio: 16/9;
+	max-height: 60vh;
+	max-width: 90vw;
+	border-radius: 10px;
+}

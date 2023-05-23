@@ -1,0 +1,23 @@
+{
+  "name": "vr-display",
+  "version": "1.0.0",
+  "description": "a simple solution to mirror your display to your vr device using WebXR",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "vr",
+    "WebXR"
+  ],
+  "author": "imagineeeinc",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "peer": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

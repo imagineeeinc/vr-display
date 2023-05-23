@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>VR Viewer (Web VR)</title>
+	<link rel="stylesheet" type="text/css" href="./main.css">
+	<script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+	<script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+<body>
+	<div id="deviceId"></div>
+	<div id="click-screen">Please Tap or Click the screen to allow for the video to be streamed</div>
+	<a-scene id="aframe-scene">
+		<a-assets>
+			<video id="remote-video" autoplay crossorigin></video>
+			<img id="galaxy" src="/assets/galaxy.jpg">
+		</a-assets>
+		<a-entity material="shader: flat; src: #remote-video"
+				geometry="primitive: plane; width: 16; height: 9;"
+				position="0 2.5 -15"
+				rotation="0 0 0"></a-entity>
+		<a-cylinder opacity="0.05" position="0 -2 0" radius="4" height="1" color="#ffffff"></a-cylin>
+		<a-light color="white" intensity="0.25" position="0 5 0" type="point"></a-light>
+		<a-sky src="#galaxy" hide-on-enter-ar></a-sky>
+		<a-entity daydream-controls></a-entity>
+		<a-camera wasd-controls-enabled="true">
+			<a-cursor></a-cursor>
+		</a-camera>
+	</a-scene>
+	<script src="./main.js"></script>
+</body>
+</html>

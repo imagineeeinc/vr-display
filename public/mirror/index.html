@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mirror (Web Vr)</title>
+	<link rel="stylesheet" type="text/css" href="./main.css">
+	<script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+</head>
+<body>
+	<label>
+		Stream to Device ID
+		<br>
+		<input type="number" id="deviceId"></input>
+	</label>
+	<br>
+	<button id="share">Share Screen</button>
+	<br>
+	<video id="preview" muted="true"></video>
+	<script src="./main.js"></script>
+</body>
+</html>
