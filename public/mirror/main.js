@@ -29,7 +29,7 @@ async function startScreenRecording() {
 				},
 				quality: Number(document.getElementById("quality").value) || 1
 			},
-			audio: true,
+			audio: document.getElementById("audio").checked,
 			surfaceSwitching: "include",
 			systemAudio: "include"
 		});

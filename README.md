@@ -18,8 +18,9 @@ pnpm i
 ### Connection
 1. navigate to localhost:5000/mirror on your the desktop you want to stream from (phones don't support the MediaStreams API), don't do anything yet
 2. Open localhost:5000/vr on the VR device (mobile phones with VR support), if you are accessing the the server from a different device replace localhost with the IP address of the device; however WebXR only works with https sites, my solution was to use [Chrome remote debugging Android](https://developer.chrome.com/docs/devtools/remote-debugging/) and forward port 5000, for iPhone doesn't support WebXR. Note: the VR has not been tested on VR headsets.
-3. Select a screen distance, 12 to 14 is perfect in vr, and press start. On the vr device/ phone find the device ID in the top left corner, put that number into the device ID text box on the computer being streamed from and tweak the streaming option for reduced latency and click share.
+3. Select a screen distance, 12 to 14 is perfect in vr, and press start. On the vr device/ phone find the device ID in the top left corner, put that number into the device ID text box on the computer being streamed from and tweak the streaming option for reduced latency (recommended not to use audio as it takes up bandwidth) and click share.
    - Recommended options for streaming:
+     - Audio: off (use direct audio if possible) 
      - quality: 1
      - width: 360 to 720
      - FPS: 30 to 60
