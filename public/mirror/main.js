@@ -1,17 +1,10 @@
 var sharing = false
 
-document.getElementById("share").addEventListener("click", () => {
-	if (sharing == true) {
-		alert("sharing already.")
-		return
-	} else {
-		sharing = true
-		document.getElementById("share").disabled = true
-	}
-	if (document.getElementById("deviceId").value == "") {
-		alert("please provide the device you want to connect to.")
-		return
-	}
+document.getElementById("details").addEventListener("submit", (e) => {
+	e.preventDefault()
+	sharing = true
+	document.getElementById("share").disabled = true
+	document.querySelectorAll("details").forEach((ele)=>ele.disabled = true)
 	mirrorScreen()
 })
 
@@ -28,7 +21,18 @@ async function mirrorScreen() {
 }
 async function startScreenRecording() {
   try {
-    const stream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: true });
+    const stream = await navigator.mediaDevices.getDisplayMedia({
+			video: {
+				mandatory: {
+					maxWidth: Number(document.getElementById("width").value) || 720,
+					maxFrameRate: Number(document.getElementById("fps").value) || 60
+				},
+				quality: Number(document.getElementById("quality").value) || 1
+			},
+			audio: true,
+			surfaceSwitching: "include",
+			systemAudio: "include"
+		});
     return stream;
   } catch (error) {
     console.error('Error capturing screen:', error);

@@ -6,11 +6,22 @@ var peer = new Peer(ID, {host:window.location.hostname, path: '/peerjs', port: w
 
 peer.on('call', function(call) {
 	call.answer()
-    call.on('stream', function(Stream) {
-      document.getElementById("remote-video").srcObject = Stream
-			document.getElementById("remote-video").play()
-    })
+	call.on('stream', function(Stream) {
+		document.getElementById("remote-video").srcObject = Stream
+		document.getElementById("remote-video").play()
+	})
 })
-setTimeout(()=>{
+//Default settings set
+document.getElementById("screen-distance").value = localStorage.getItem("screen-distance") || 12
+document.getElementById("startbtn").addEventListener("click", ()=>{
 	document.getElementById("click-screen").style.display = "none"
-}, 5000)
+	localStorage.setItem("screen-distance", document.getElementById("screen-distance").value || 12)
+	document.getElementById("screen").setAttribute("position", `0 2.5 -${localStorage.getItem("screen-distance")}`)
+})
+
+var rotation = 0
+setInterval(()=>{
+	document.getElementById("sky").setAttribute("rotation", `0 ${rotation} 0`)
+	rotation += 0.0025
+	if (rotation >= 360) rotation = 0
+}, 1000/60)

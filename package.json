@@ -1,6 +1,6 @@
 {
   "name": "vr-display",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a simple solution to mirror your display to your vr device using WebXR",
   "main": "index.js",
   "type": "module",

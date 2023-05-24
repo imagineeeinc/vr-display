@@ -9,15 +9,41 @@
 	<script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
 </head>
 <body>
-	<label>
-		Stream to Device ID
-		<br>
-		<input type="number" id="deviceId"></input>
-	</label>
-	<br>
-	<button id="share">Share Screen</button>
-	<br>
-	<video id="preview" muted="true"></video>
+	<div id="content">
+		<div id="contorls">
+			<form id="details">
+				<h1>Web VR Display Mirror Control Panel</h1>
+				<label>
+					Stream to Device ID
+					<br>
+					<input type="number" id="deviceId" required></input>
+				</label>
+				<h2>Overide Settings</h2>
+				<label>
+					Video Quality
+					<br>
+					<input type="number" id="quality" placeholder="1"></input>
+				</label>
+				<br>
+				<label>
+					Video width (Not Recomended)
+					<br>
+					<input type="number" id="width" placeholder="720"></input>
+				</label>
+				<br>
+				<label>
+					Max fps (Not Recomended)
+					<br>
+					<input type="number" id="fps" placeholder="60"></input>
+				</label>
+				<br>
+				<input type="submit" id="share" value="Share Screen">
+			</form>
+		</div>
+		<div id="preview-box">
+			<video id="preview" muted="true"></video>
+		</div>
+	</div>
 	<script src="/mirror/main.js"></script>
 </body>
 </html>

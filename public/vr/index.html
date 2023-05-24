@@ -10,22 +10,32 @@
 	<script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
 <body>
 	<div id="deviceId"></div>
-	<div id="click-screen">Please Tap or Click the screen to allow for the video to be streamed</div>
-	<a-scene id="aframe-scene">
+	<div id="click-screen">
+		<div>
+			<h2>Set some settings and start streaming</h2>
+			<br>
+			<label>Screen Distance: <input id="screen-distance" type="number" value="12" placeholder="12"></label>
+			<br>
+			<button id="startbtn">start</button>
+		</div>
+	</div>
+	<a-scene id="aframe-scene" loading-screen="dotsColor: white; backgroundColor: black">
 		<a-assets>
 			<video id="remote-video" autoplay crossorigin></video>
 			<img id="galaxy" src="/assets/galaxy.jpg">
 		</a-assets>
-		<a-entity material="shader: flat; src: #remote-video"
+		<a-entity id="screen" material="shader: flat; src: #remote-video"
 				geometry="primitive: plane; width: 16; height: 9;"
-				position="0 2.5 -15"
+				position="0 2.5 -12"
 				rotation="0 0 0"></a-entity>
-		<a-cylinder opacity="0.05" position="0 -2 0" radius="4" height="1" color="#ffffff"></a-cylin>
-		<a-light color="white" intensity="0.25" position="0 5 0" type="point"></a-light>
-		<a-sky src="#galaxy" hide-on-enter-ar></a-sky>
-		<a-entity daydream-controls></a-entity>
-		<a-camera wasd-controls-enabled="true">
-			<a-cursor></a-cursor>
+		<a-cylinder opacity="0.2" roughness="0.2" position="0 -2 0" radius="4" height="1" color="#ffffff"></a-cylinder>
+		<a-light color="white" intensity="0.25" position="0 3 0" type="ambient"></a-light>
+		<a-sky id="sky" src="#galaxy" hide-on-enter-ar rotation="0 0 0"></a-sky>
+		<a-entity daydream-controls laser-controls raycaster="lineColor: white; lineOpacity: 0.3"></a-entity>
+		<a-camera wasd-controls-enabled="true"
+			fov="100"
+			wasd-controls-enabled="true">
+			<!-- <a-cursor></a-cursor> -->
 		</a-camera>
 	</a-scene>
 	<script src="/vr/main.js"></script>
