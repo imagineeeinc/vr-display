@@ -14,9 +14,9 @@ async function mirrorScreen() {
 	document.getElementById("preview").addEventListener('loadedmetadata', () => {
     document.getElementById("preview").play()
 	})
-	var peer = new Peer(`mirrorNode${Math.floor((Math.random() * 9999) + 1000)}`,{host:window.location.hostname, path: '/peerjs', port: window.location.port})
+	var peer = new Peer(`VRMirrorNode${Math.floor((Math.random() * 9999) + 1000)}`,{host:window.location.hostname, path: '/peerjs', port: window.location.port})
 	if (stream) {
-    const connection = peer.call(document.getElementById("deviceId").value, stream)
+    const connection = peer.call(`rapidVRNode-${document.getElementById("deviceId").value}`, stream)
   }
 }
 async function startScreenRecording() {

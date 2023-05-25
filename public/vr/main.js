@@ -2,7 +2,7 @@ var ID = sessionStorage.getItem("id") || Math.floor((Math.random() * 9999) + 100
 sessionStorage.setItem("id", ID)
 document.getElementById("deviceId").innerHTML = `Device ID: ${ID}`
 
-var peer = new Peer(ID, {host:window.location.hostname, path: '/peerjs', port: window.location.port})
+var peer = new Peer(`VRNode-${ID}`, {host:window.location.hostname, path: '/peerjs', port: window.location.port})
 
 peer.on('call', function(call) {
 	call.answer()
