@@ -16,7 +16,7 @@ async function mirrorScreen() {
 	})
 	var peer = new Peer(`VRMirrorNode${Math.floor((Math.random() * 9999) + 1000)}`,{host:window.location.hostname, path: '/peerjs', port: window.location.port})
 	if (stream) {
-    const connection = peer.call(`rapidVRNode-${document.getElementById("deviceId").value}`, stream)
+    const connection = peer.call(`VRNode-${document.getElementById("deviceId").value}`, stream)
   }
 }
 async function startScreenRecording() {
